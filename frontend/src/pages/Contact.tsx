@@ -17,9 +17,11 @@ const Contact = () => {
     console.log(data);
 
     const response = await axios.post(
-      "http://localhost:3000/api/send-email",
+      "https://portfolio-backend-2g60.onrender.com/api/send-email",
       data
     );
+    console.log(response);
+    
     if (response.status == 201) {
       toast(
         response.data.message || `please check the email sent to ${data.email}`,

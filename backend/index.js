@@ -3,10 +3,12 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import { config } from "dotenv";
 
-const port = process.env.PORT || 3000;
+config({ path: "./.env" });
+const port = process.env.PORT ;
+console.log(port);
+
 const app = express();
 
-config({ path: "./.env" });
 
 app.use(cors());
 app.use(express.json());
@@ -59,5 +61,5 @@ app.post("/api/send-email", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at Port : ${port}`);
 });
